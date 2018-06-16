@@ -27,12 +27,13 @@ $("#addTrain").on("click", function (event) {
     });
 });
 
-let nextArrival = '10:30';
-let minutesAway = moment().toNow();
-
 
 database.ref().on("child_added", function (childSnapshot) {
 
+    let timeDifferenceSinceFirstTrain = moment().diff(moment(childSnapshot.val().firstTrain, "HH:mm"));
+    let timeLeft = timeDifferenceSinceFirstTrain % childSnapshot.val().frequency;
+    let minutesAway = childSnapshot.val().frequency - timeLeft;
+    let nextArrival = moment().add(minutesAway, "minutes").format('HH:mm');
 
     $("#trainSchedule").append(
         "<tr><td>" + childSnapshot.val().trainName +
