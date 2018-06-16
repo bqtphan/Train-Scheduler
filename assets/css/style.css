@@ -1,0 +1,8 @@
+body{
+    background-color:grey;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+.jumbotron{
+    opacity:.9;    
+}

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>Train Scheduler</title>
+  <link rel="stylesheet" href="assets/css/reset.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/5.0.4/firebase.js"></script>
+  <script src="https://cdn.jsdelivr.net/momentjs/2.12.0/moment.min.js"></script>
+
+</head>
+
+<body>
+  <div class="jumbotron text-white rounded bg-dark">
+    <h1>Train Scheduler</h1>
+  </div>
+
+  <div class="card" style="width:80%">
+    <div class="card-heading">
+      <h3 class="card-title">
+        <strong>Current Train Schedule</strong>
+      </h3>
+    </div>
+    <div class="card-body">
+      <table class="table table-hover" id='trainSchedule'>
+        <thead>
+          <tr>
+            <th>Train Name</th>
+            <th>Destination</th>
+            <th>Frequency (min)</th>
+            <th>Next Arrival</th>
+            <th>Minutes Away</th>
+          </tr>
+        </thead>
+        <tbody>
+        </tbody>
+      </table>
+    </div>
+  </div>
+<br>
+  <div class="col-lg-6">
+    <div class="card">
+      <div class="card-heading">
+        <h3 class="card-title">Train Table Schedule</h3>
+      </div>
+      <div class="card-body">
+        <form role="form">
+          <div class="form-group row">
+            <label for="name-input">Train Name:</label>
+            <input class="form-control" id="name-input">
+          </div>
+          <div class="form-group row">
+            <label for="destination-input">Destination:</label>
+            <input class="form-control" id="destination-input">
+          </div>
+          <div class="form-group row">
+            <label for="first-input">First Train Time (HH:mm - military time):</label>
+            <input class="form-control" id="first-input">
+          </div>
+          <div class="form-group row">
+            <label for="frequency-input">Frequency (min):</label>
+            <input class="form-control" id="frequency-input"></input>
+          </div>
+          <button class="btn btn-default" id="addTrain" type="submit">Submit</button>
+        </form>
+
+      </div>
+    </div>
+  </div>
+
+  <script src="assets/javascript/script.js"></script>
+
+</body>
+
+</html>
